@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{8e8e3914-4f8f-4e69-896e-c7a184c483b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Programs">
+      <UniqueIdentifier>{9bac7559-fdfa-450e-8234-fc79f311753c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Structures">
+      <UniqueIdentifier>{08e1993a-03e6-40fb-869f-f20da265e085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Structures\LinkedList">
+      <UniqueIdentifier>{1e86b598-9632-4535-b47c-a974835e6fd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Programs\LinkedListCycleII">
+      <UniqueIdentifier>{6ba848c6-b0b6-481f-97cf-2f6bfac8091d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Programs\ReorderList">
+      <UniqueIdentifier>{fe239fb3-bc35-4500-b3d6-e591c44ad1b5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Samples.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Structures\LinkedList\LinkedList.cpp">
+      <Filter>src\Structures\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Programs\LinkedListCycleII\LinkedListCycleII.cpp">
+      <Filter>src\Programs\LinkedListCycleII</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Programs\ReorderList\ReorderList.cpp">
+      <Filter>src\Programs\ReorderList</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\pch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Structures\LinkedList\LinkedList.h">
+      <Filter>src\Structures\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Programs\LinkedListCycleII\LinkedListCycleII.h">
+      <Filter>src\Programs\LinkedListCycleII</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Programs\ReorderList\ReorderList.h">
+      <Filter>src\Programs\ReorderList</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
