@@ -81,7 +81,7 @@ void LinkedList::GenerateOrderedListMembers(int memberCount)
 {
     for (int i = 0; i < memberCount; i++)
     {
-        AddAtEnd(i);
+        AddAtEnd(i+1);
     }
 }
 
