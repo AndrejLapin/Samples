@@ -77,15 +77,31 @@ class Functor
 {
 public:
     Functor() = default;
-    Functor(int privateNumber) :m_PrivateNumber(privateNumber) {}
+    Functor(int privateNumber):m_PrivateNumber(privateNumber), m_selfTasks(nullptr) {}
+    Functor(int privateNumber, std::vector<std::future<void>>* selfTasks):m_PrivateNumber(privateNumber), m_selfTasks(selfTasks) {}
     ~Functor() = default;
 
     void operator()(int inputNumber)
     {
         std::cout << "Functor private number " << m_PrivateNumber << ". Input number " << inputNumber << "\n";
     }
+
+    void StartSelfTask(int taskAmount)
+    {
+        if (!m_selfTasks)
+        {
+            std::cout << "m_selfTasks member is not set!\n";
+        }
+        m_selfTasks->reserve(taskAmount);
+
+        for (int i = 0; i < taskAmount; i++)
+        {
+            m_selfTasks->emplace_back(std::async(std::launch::async, *this, i));
+        }
+    }
 private:
     int m_PrivateNumber;
+    std::vector<std::future<void>>* m_selfTasks;
 };
 
 void StartTasks(int taskAmount)
@@ -105,6 +121,8 @@ void Asynchronous::program()
 {
     //StartThreads(50);
     //StartTasks(50);
-    Functor coolFunctor(39);
-    auto task = std::async(std::launch::async, coolFunctor, 4);
+    std::vector<std::future<void>> m_tasks;
+    Functor coolFunctor(39, &m_tasks);
+    //auto task = std::async(std::launch::async, coolFunctor, 4);
+    coolFunctor.StartSelfTask(25);
 }
