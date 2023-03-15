@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -147,15 +147,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Programs\BTPreorderTrav\BTPreOrderTrav.cpp" />
     <ClCompile Include="src\Programs\LinkedListCycleII\LinkedListCycleII.cpp" />
     <ClCompile Include="src\Programs\ReorderList\ReorderList.cpp" />
     <ClCompile Include="src\Samples.cpp" />
+    <ClCompile Include="src\Structures\Binarytree\BinaryTree.cpp" />
     <ClCompile Include="src\Structures\LinkedList\LinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Programs\BTPreorderTrav\BTPreorderTrav.h" />
     <ClInclude Include="src\Programs\LinkedListCycleII\LinkedListCycleII.h" />
     <ClInclude Include="src\Programs\ReorderList\ReorderList.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Structures\Binarytree\BinaryTree.h" />
     <ClInclude Include="src\Structures\LinkedList\LinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
