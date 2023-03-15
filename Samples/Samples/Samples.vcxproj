@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Programs\Asynchronous\Asynchronous.cpp" />
     <ClCompile Include="src\Programs\BTPreorderTrav\BTPreOrderTrav.cpp" />
     <ClCompile Include="src\Programs\LinkedListCycleII\LinkedListCycleII.cpp" />
     <ClCompile Include="src\Programs\ReorderList\ReorderList.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="src\Structures\LinkedList\LinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Programs\Asynchronous\Asynchronous.h" />
     <ClInclude Include="src\Programs\BTPreorderTrav\BTPreorderTrav.h" />
     <ClInclude Include="src\Programs\LinkedListCycleII\LinkedListCycleII.h" />
     <ClInclude Include="src\Programs\ReorderList\ReorderList.h" />

@@ -37,6 +37,9 @@
     <ClCompile Include="src\Programs\ReorderList\ReorderList.cpp">
       <Filter>src\Programs\ReorderList</Filter>
     </ClCompile>
+    <ClCompile Include="src\Programs\BTPreorderTrav\BTPreOrderTrav.cpp" />
+    <ClCompile Include="src\Structures\Binarytree\BinaryTree.cpp" />
+    <ClCompile Include="src\Programs\Asynchronous\Asynchronous.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h">
@@ -51,5 +54,8 @@
     <ClInclude Include="src\Programs\ReorderList\ReorderList.h">
       <Filter>src\Programs\ReorderList</Filter>
     </ClInclude>
+    <ClInclude Include="src\Programs\BTPreorderTrav\BTPreorderTrav.h" />
+    <ClInclude Include="src\Structures\Binarytree\BinaryTree.h" />
+    <ClInclude Include="src\Programs\Asynchronous\Asynchronous.h" />
   </ItemGroup>
 </Project>
