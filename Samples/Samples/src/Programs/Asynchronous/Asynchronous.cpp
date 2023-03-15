@@ -73,6 +73,21 @@ void StartThreads(int threadAmount)
     std::cout << "Threads joined.\n";
 }
 
+class Functor
+{
+public:
+    Functor() = default;
+    Functor(int privateNumber) :m_PrivateNumber(privateNumber) {}
+    ~Functor() = default;
+
+    void operator()(int inputNumber)
+    {
+        std::cout << "Functor private number " << m_PrivateNumber << ". Input number " << inputNumber << "\n";
+    }
+private:
+    int m_PrivateNumber;
+};
+
 void StartTasks(int taskAmount)
 {
     std::cout << "Starting tasks.\n";
@@ -89,5 +104,7 @@ void StartTasks(int taskAmount)
 void Asynchronous::program()
 {
     //StartThreads(50);
-    StartTasks(100);
+    //StartTasks(50);
+    Functor coolFunctor(39);
+    auto task = std::async(std::launch::async, coolFunctor, 4);
 }
