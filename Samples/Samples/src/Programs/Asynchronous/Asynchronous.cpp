@@ -124,7 +124,17 @@ public:
         }
     }
 
-    // waits for all tasks to be done?
+    void StartTasks_DontStore(int taskAmount)
+    {
+        std::vector<std::future<void>> localTasks;
+        localTasks.reserve(taskAmount);
+        for (int i = 0; i < taskAmount; i++)
+        {
+            localTasks.emplace_back(std::async(std::launch::async, &AsyncTaskHandler::CoolTask, this, i));
+        }
+    }
+
+    // waits for all tasks to be done
     void Get()
     {
         for (auto& task : m_Tasks)
@@ -138,6 +148,7 @@ public:
 private:
     std::mutex m_Mutext;
     int m_TasksDone;
+    // std::future destructor waits untill tasks are done
     std::vector<std::future<void>> m_Tasks;
 };
 
@@ -158,11 +169,16 @@ void Asynchronous::program()
 {
     //StartThreads(25);
     //StartTasks(25);
+
     AsyncTaskHandler taskHandler;
-    taskHandler.StartTasks(25);
+    taskHandler.StartTasks_DontStore(12);
+    taskHandler.StartTasks_DontStore(12);
+    /*taskHandler.StartTasks(25);
     taskHandler.Get();
     taskHandler.StartTasks(25);
-    taskHandler.Get();
+    taskHandler.Get();*/
+
+
     /*std::vector<std::future<void>> m_tasks;
     Functor coolFunctor(39);
     auto task = std::async(std::launch::async, coolFunctor, 99);
