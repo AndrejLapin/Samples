@@ -99,6 +99,48 @@ private:
     int m_PrivateNumber;
 };
 
+class AsyncTaskHandler
+{
+public:
+    /*~AsyncTaskHandler()
+    {
+        m_Tasks.clear();
+    }*/
+
+    void CoolTask(int i)
+    {
+        PrimeFactor(100000);
+        std::lock_guard<std::mutex> lock(m_Mutext);
+        m_TasksDone++;
+        std::cout << "Task nr " << i << " done, tasks done: " << m_TasksDone << "\n";
+    }
+
+    void StartTasks(int taskAmount)
+    {
+        m_Tasks.reserve(taskAmount);
+        for (int i = 0; i < taskAmount; i++)
+        {
+            m_Tasks.emplace_back(std::async(std::launch::async, &AsyncTaskHandler::CoolTask, this, i));
+        }
+    }
+
+    // waits for all tasks to be done?
+    void Get()
+    {
+        for (auto& task : m_Tasks)
+        {
+            task.get();
+        }
+        m_Tasks.clear();
+        std::cout << "All current tasks are done\n";
+    }
+
+private:
+    std::mutex m_Mutext;
+    int m_TasksDone;
+    std::vector<std::future<void>> m_Tasks;
+};
+
 void StartTasks(int taskAmount)
 {
     std::cout << "Starting tasks.\n";
@@ -114,10 +156,15 @@ void StartTasks(int taskAmount)
 
 void Asynchronous::program()
 {
-    //StartThreads(50);
-    //StartTasks(50);
-    std::vector<std::future<void>> m_tasks;
+    //StartThreads(25);
+    //StartTasks(25);
+    AsyncTaskHandler taskHandler;
+    taskHandler.StartTasks(25);
+    taskHandler.Get();
+    taskHandler.StartTasks(25);
+    taskHandler.Get();
+    /*std::vector<std::future<void>> m_tasks;
     Functor coolFunctor(39);
     auto task = std::async(std::launch::async, coolFunctor, 99);
-    coolFunctor.StartSelfTask(25, m_tasks);
+    coolFunctor.StartSelfTask(25, m_tasks);*/
 }
