@@ -152,7 +152,7 @@ void reorderList(ListNode* head)
 void ReorderList::program()
 {
     LinkedList list;
-    list.GenerateOrderedListMembers(0);
+    list.GenerateOrderedListMembers(20);
     list.PrintMembers();
 
     //reorderListAlloc(list.head);

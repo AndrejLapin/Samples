@@ -67,6 +67,7 @@ int LinkedList::GetNodeIndex(ListNode* node)
             return currentIndex;
         currentIndex++;
     }
+    return -1;
 }
 
 void LinkedList::GenerateRandomListMembers(int memberCount)
